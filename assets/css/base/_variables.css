@@ -1,0 +1,16 @@
+/* colors */
+:root {
+    --color-primary: #000080;
+    --color-secondary: #3232CD;
+    --color-tertiary: #0000FF;
+    --color-fourth: #87CEEB;
+    --color-fiveth: #AAD8E6;
+    --color-light: #fff;
+    --color-dark: #121212;
+}
+
+/* fonts */
+:root {
+    --title-font: 'Montserrat', sans-serif;
+    --body-font: 'Lato', sans-serif;
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/pages/game.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="shortcut icon" href="assets/img/logo2.png" type="image/x-icon">
+    <title>Super Trunfo | Azul</title>
+</head>
+
+<body>
+    <div class="rotate-message">
+        <video autoplay loop muted src="assets/video/rotate-mobile.mp4" alt="Deixar celular deitado"></video>
+        <p>Por favor, deixe seu dispositivo deitado para iniciar o jogo.</p>
+    </div>
+    <div class="game-display-on">
+        <header>
+            <button type="button" class="btn btn-back" data-bs-toggle="modal" data-bs-target="#modalConfirmExit">
+                <i class="bi bi-skip-backward">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
+                        class="bi bi-skip-backward" viewBox="0 0 16 16">
+                        <path
+                            d="M.5 3.5A.5.5 0 0 1 1 4v3.248l6.267-3.636c.52-.302 1.233.043 1.233.696v2.94l6.267-3.636c.52-.302 1.233.043 1.233.696v7.384c0 .653-.713.998-1.233.696L8.5 8.752v2.94c0 .653-.713.998-1.233.696L1 8.752V12a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5m7 1.133L1.696 8 7.5 11.367zm7.5 0L9.196 8 15 11.367z" />
+                    </svg>
+                </i>
+                Sair
+            </button>
+            <a href="https://www.voeazul.com.br/home/br/pt/home" target="_blanck"><img src="assets/img/logo.webp"></a>
+        </header>
+
+        <main class="main-container">
+            <div class="start-block">
+                <div id="playerCarousel" class="carousel slide deck-player">
+                    <div class="carousel-inner"></div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#playerCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#playerCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Próximo</span>
+                    </button>
+                </div>
+            </div>
+            <div class="center-block game-block">
+                <div class="sub-block-1">
+                    <article class="score-block">
+                        <div class="score-top">
+                            <h5>PLACAR</h5>
+                            <p id="game-message">teste</p>
+                        </div>
+                        <div class="score-bottom">
+                            <div class="score" id="player-score">0</div>
+                            <p>-</p>
+                            <div class="score" id="ai-score">0</div>
+                        </div>
+                    </article>
+                </div>
+                <div class="sub-block-2">
+                    <form>
+                        <div class="label-select">
+                            <label for="attribute" class="montserrat">Atributo</label>
+                            <select id="attribute" name="attribute" required class="attribute-form">
+                                <option selected value="speed">Velocidade</option>
+                                <option value="fuel">Combustível</option>
+                                <option value="passengers">Passageiros</option>
+                                <option value="maxWeight">Máximo de Combustível</option>
+                                <option value="maxAltitude">Altitude Máxima</option>
+                            </select>
+                        </div>  
+                    </form>
+                    <button class="play-button montserrat" data-bs-toggle="modal" data-bs-target="#modalConfirmResult"
+                        id="play-button">Jogar</button>
+                </div>
+            </div>
+            <div class="end-block">
+                <div class="deck-ai caroucel-block">
+                    <article class="card"></article>
+                </div>
+            </div>
+        </main>
+
+        <!-- modals -->
+        <div class="modal fade" id="modalConfirmResult" tabindex="-1" aria-labelledby="confirmExitModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmExitModalLabel">Resultado</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="result-modal-body"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-positive" data-bs-dismiss="modal">Continuar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalConfirmExit" tabindex="-1" aria-labelledby="confirmExitModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmExitModalLabel">Sair do Jogo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Você tem certeza de que deseja sair? Todo o progresso da partida atual será perdido.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-positive" data-bs-dismiss="modal">Cancelar</button>
+                    <a href="index.html" class="btn btn-negative">Sair</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="assets/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/decks.js"></script>
+    <script src="assets/js/game.js"></script>
+</body>
+
+</html>
