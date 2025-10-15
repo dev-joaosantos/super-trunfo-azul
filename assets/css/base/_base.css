@@ -6,6 +6,8 @@
 
 * {
     margin: 0;
+    box-sizing: border-box;
+    padding: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -88,4 +90,12 @@ section {
     section {
         margin-top: 8vh;
     }
+}
+
+.line-section hr {
+    width: 85vw;
+    height: 5px;
+    background-color: var(--color-primary);
+    margin-left: 7.5vw;
+    border-radius: 10px;
 }

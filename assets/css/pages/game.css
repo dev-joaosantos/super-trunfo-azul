@@ -1,18 +1,22 @@
-/* base */
 body {
-    background: url(../../img/game-background.webp) no-repeat center center;
-    background-size: cover;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
+    background: url(../../img/body-background.webp);
+    background-position: left center;
+    background-attachment: fixed;
 }
 
 header {
     width: 100%;
-    padding: 1rem;
+    padding-top: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 2rem;
     flex-shrink: 0;
     display: flex;
-    flex-direction: row;    
+    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -109,17 +113,15 @@ header a img {
 
 /* ai deck */
 .deck-ai article {
-    align-items: center;
-    justify-content: center;
-    background: url(../../img/cards/back-card-background.webp);
-    background-position: center center;
+    background: url(../../img/cards/card-back.webp);
     object-fit: cover;
+    background-position: center;
     border: 2px solid var(--color-fiveth);
 }
 
 .deck-ai article img {
-    width: 90%;
-    height: 60%;
+    width: 20%;
+    height: auto;
 }
 
 /* cards */
@@ -130,7 +132,7 @@ header a img {
     max-height: 260px;
     display: flex;
     flex-direction: column;
-    background-color: var(--color-fiveth);
+    background-color: var(--color-fourth);
     border-radius: 15px;
     border: 2px solid var(--color-primary);
     overflow: hidden;
@@ -208,6 +210,7 @@ header a img {
 
 #game-message {
     font-size: small;
+    color: var(--color-fiveth);
 }
 
 .score-bottom {
@@ -236,6 +239,8 @@ header a img {
     border: 1px solid var(--color-light);
     text-align: center;
     width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 form {
@@ -243,13 +248,30 @@ form {
 }
 
 form select {
-    background-color: var(--color-dark);
+    background-color: #22222d;
     color: var(--color-light);
-    border: 1px solid var(--color-light);
+    border-bottom: 3px solid var(--color-light);
+    border-right: 1.5px solid var(--color-light);
+    border-left: 1.5px solid var(--color-light);
     padding-top: 5px;
     padding-bottom: 5px;
     width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
+
+form select:focus {
+    border-bottom: 3px solid #575774;
+}
+
+option {
+    background-color: #22222d;
+}
+
+option:before {
+    border: 5px solid var(--color-light);
+}
+
 
 .play-button {
     background-color: var(--color-primary);
@@ -268,10 +290,6 @@ form select {
 }
 
 /* modal */
-#modalConfirmExit .modal-title {
-    color: red;
-}
-
 .btn-positive {
     background-color: var(--color-primary);
     color: var(--color-light);
@@ -293,6 +311,105 @@ form select {
     border: 1px solid var(--color-dark);
 }
 
+#modalConfirmResult .modal-dialog {
+    max-width: 95vw;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    min-height: calc(100% - 1rem);
+}
+
+.modal-content {
+    background-color: #f0f8ff;
+}
+
+#result-modal-body {
+    padding: 1rem;
+}
+
+.result-header {
+    text-align: center;
+    margin-bottom: 1rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.result-message {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.result-message.win { color: #28a745; }
+.result-message.loss { color: #dc3545; }
+.result-message.draw { color: #6c757d; }
+
+.result-comparison {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.result-card-display h5 {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+#result-modal-body .card {
+    width: 220px; /* Um pouco maior para mais espaço interno */
+    height: 308px;
+    animation: fadeIn 0.5s ease-out 0.2s backwards;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+#result-modal-body .card .attributes-container {
+    padding: 1rem; /* Aumenta o respiro interno */
+    display: flex; /* Mantém o layout de duas colunas */
+    flex-grow: 1; /* Faz este container ocupar o espaço restante */
+}
+
+/* --- MUDANÇA PRINCIPAL PARA O ALINHAMENTO --- */
+#result-modal-body .card .attributes,
+#result-modal-body .card .values {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* MÁGICA: Distribui o espaço verticalmente */
+}
+
+#result-modal-body .card .title-attributes {
+    margin-bottom: 0.5rem; /* Espaço abaixo do título "ATRIBUTOS" e "VALORES" */
+}
+
+#result-modal-body .card p {
+    margin-bottom: 0;
+    font-size: 0.5.5rem;
+}
+
+.result-divider {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #003366;
+    animation: fadeIn 0.5s ease-out 0.4s backwards;
+}
+
+.highlight-attribute {
+    background-color: rgba(255, 255, 0, 0.5);
+    border-radius: 3px;
+    padding: 2px 4px;
+}
+
+/* --- Animação --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
 /* score */
 .sub-block-1 {
     height: 40%;
@@ -303,14 +420,58 @@ form select {
 
 /* results */
 .used-card {
-    opacity: 0.5;
     pointer-events: none;
-    /* Impede que a carta seja selecionada novamente */
+    /* Mantém o bloqueio de cliques */
+}
+
+/* A nova camada de bloqueio */
+.lock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Fundo escuro semitransparente */
+    display: none;
+    /* Começa escondido */
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    /* Para acompanhar o arredondamento da carta */
+}
+
+/* O ícone SVG do cadeado */
+.lock-overlay svg {
+    width: 50px;
+    height: 50px;
+    fill: #FFF;
+    /* Cor do cadeado: branco */
+}
+
+/* Regra Mágica: Quando a carta tiver a classe .used-card, mostre o overlay */
+.used-card .lock-overlay {
+    display: flex;
 }
 
 /* Garante que a imagem e os atributos dentro da carta virada não apareçam */
 .card--facedown img,
 .card--facedown .attributes-container {
+    display: none;
+}
+
+/* Adicione no final de game.css */
+
+#attribute-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    /* Espaço entre o texto e o cadeado */
+}
+
+/* Classe para esconder o cadeado */
+.hidden {
     display: none;
 }
 
@@ -320,6 +481,33 @@ form select {
     flex-direction: column;
     align-items: center;
     height: 60%;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-5px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(5px);
+    }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
 }
 
 /* responsive design */
@@ -348,7 +536,6 @@ form select {
 }
 
 @media (min-width: 1024px) {
-
     header a img {
         width: 10%;
         margin-left: 90%;
@@ -405,5 +592,22 @@ form select {
     .play-button {
         width: 85%;
     }
-    
+
+    .deck-ai article {
+        background: url(../../img/cards/card-back-2.webp);
+        background-position: center;
+    }
+
+    #modalConfirmResult .modal-dialog {
+        max-width: 700px;
+    }
+
+    #result-modal-body .card {
+        width: 280px; /* Cartas ainda maiores no desktop */
+        height: 392px;
+    }
+
+    #result-modal-body .card p {
+        font-size: 1rem;
+    }
 }

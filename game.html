@@ -52,8 +52,7 @@
                 <div class="sub-block-1">
                     <article class="score-block">
                         <div class="score-top">
-                            <h5>PLACAR</h5>
-                            <p id="game-message">teste</p>
+                            <p id="game-message"></p>
                         </div>
                         <div class="score-bottom">
                             <div class="score" id="player-score">0</div>
@@ -65,23 +64,25 @@
                 <div class="sub-block-2">
                     <form>
                         <div class="label-select">
-                            <label for="attribute" class="montserrat">Atributo</label>
+                            <label for="attribute" class="montserrat" id="attribute-label">Atributo<span id="lock-icon"
+                                    class="hidden">🔒</span></label>
                             <select id="attribute" name="attribute" required class="attribute-form">
-                                <option selected value="speed">Velocidade</option>
-                                <option value="fuel">Combustível</option>
-                                <option value="passengers">Passageiros</option>
-                                <option value="maxWeight">Máximo de Combustível</option>
+                                <option selected value="speed">Velocidade Máxima</option>
+                                <option value="fuel">Combustível Máximo</option>
+                                <option value="passengers">Máximo de Passageiros</option>
+                                <option value="maxWeight">Peso Máximo</option>
                                 <option value="maxAltitude">Altitude Máxima</option>
                             </select>
-                        </div>  
+                        </div>
                     </form>
-                    <button class="play-button montserrat" data-bs-toggle="modal" data-bs-target="#modalConfirmResult"
-                        id="play-button">Jogar</button>
+                    <button class="play-button montserrat" id="play-button">Jogar</button>
                 </div>
             </div>
             <div class="end-block">
                 <div class="deck-ai caroucel-block">
-                    <article class="card"></article>
+                    <article>
+                        <img src="assets/img/logo2.png" alt="Logotipo da Azul">
+                    </article>
                 </div>
             </div>
         </main>
