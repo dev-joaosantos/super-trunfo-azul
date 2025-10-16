@@ -70,14 +70,14 @@ header {
     height: 1.5px;
     bottom: 0;
     left: 0;
-    background-color: var(--color-fiveth);
+    background-color: #FFCF01;
     transform: scaleX(0);
     transition: 0.3s ease;
 }
 
 .nav-link:hover,
 .nav-link:focus {
-    color: var(--color-fiveth);
+    color: #FFCF01;
 }
 
 .nav-link:hover::after {
@@ -106,8 +106,8 @@ header {
 
 .button-play:hover {
     transform: translateY(-5px);
-    color: var(--color-fiveth);
-    border: 1px solid var(--color-fiveth);
+    color: #FFCF01;
+    border: 1px solid #FFCF01;
 }
 
 /* rules */
@@ -301,11 +301,10 @@ header {
 }
 
 .developer-media svg:hover {
-    color: var(--color-fiveth);
+    color: #FFCF01;
     transform: translateY(-5px);
     cursor: pointer;
 }
-
 
 /* footer */
 footer {
@@ -339,19 +338,16 @@ footer a {
 }
 
 .button-back {
-    background-color: var(--color-fiveth);
+    background-color: #FFCF01;
     color: var(--color-primary);
     width: 10rem;
     padding: 0.5rem 1rem;
-    border: 2px solid var(--color-light);
     border-radius: 5px;
     transition: 0.3s ease;
 }
 
 .button-back:hover {
     transform: translateY(-5px);
-    color: var(--color-light);
-    border: 2px solid var(--color-light);
 }
 
 /* responsive design */

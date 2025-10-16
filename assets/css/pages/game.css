@@ -184,7 +184,7 @@ header a img {
 .score-block {
     background-color: var(--color-primary);
     border-radius: 5px;
-    border: 2px solid var(--color-fiveth);
+    border: 2px solid #FFCF01;
     width: 95%;
     height: 90px;
     max-height: 100px;
@@ -205,12 +205,12 @@ header a img {
 .score-block h5,
 .score-block p {
     text-align: center;
-    color: var(--color-light);
+    color: #FFCF01;
 }
 
 #game-message {
     font-size: small;
-    color: var(--color-fiveth);
+    color: #FFCF01;
 }
 
 .score-bottom {
@@ -222,7 +222,7 @@ header a img {
 }
 
 .score {
-    color: var(--color-fiveth);
+    color: #FFCF01;
 }
 
 /* play */
@@ -275,8 +275,8 @@ option:before {
 
 .play-button {
     background-color: var(--color-primary);
-    color: var(--color-fiveth);
-    border: 1px solid var(--color-fiveth);
+    color: #FFCF01;
+    border: 2px solid #FFCF01;
     padding-top: 5px;
     padding-bottom: 5px;
     width: 95%;
