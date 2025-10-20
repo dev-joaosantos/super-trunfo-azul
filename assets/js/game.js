@@ -19,6 +19,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const lockIconEl = document.getElementById('lock-icon');
     const scoreBlockEl = document.querySelector('.score-block');
     const resultModal = new bootstrap.Modal(document.getElementById('modalConfirmResult'));
+    const spotlightOverlay = document.getElementById('spotlight-overlay');
+
+    function spotlightMessage() {
+        // Ativa o efeito
+        spotlightOverlay.classList.add('active');
+        scoreBlockEl.classList.add('highlighted');
+
+        // Desativa o efeito após 2 segundos
+        setTimeout(() => {
+            spotlightOverlay.classList.remove('active');
+            scoreBlockEl.classList.remove('highlighted');
+        }, 2000); // 2000 milissegundos = 2 segundos
+    }
 
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -135,6 +148,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         displayHands();
         updateTurnInfo();
+
+        setTimeout(spotlightMessage, 500);
     }
 
     function getSelectedPlayerCard() {
@@ -356,6 +371,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // Apenas um event listener é necessário agora
     playButton.addEventListener('click', handlePlayButtonClick);
     // --- FIM DA MUDANÇA ---
+
+    const resultModalEl = document.getElementById('modalConfirmResult');
+    resultModalEl.addEventListener('hidden.bs.modal', function () {
+        // Só ativa o spotlight se o jogo não tiver acabado
+        if (!isGameOver) {
+            spotlightMessage();
+        }
+    });
+
+    playButton.addEventListener('click', handlePlayButtonClick);
 
     startGame();
 });

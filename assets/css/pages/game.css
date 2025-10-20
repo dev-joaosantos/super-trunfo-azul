@@ -510,6 +510,42 @@ option:before {
     animation: shake 0.5s ease-in-out;
 }
 
+.spotlight-overlay {
+    position: fixed; /* Fica fixo na tela, cobrindo tudo */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* Cor preta com 70% de opacidade */
+    z-index: 1050; /* Um z-index alto para ficar sobre o jogo, mas abaixo do modal */
+    
+    /* Estado inicial: invisível e não clicável */
+    opacity: 0;
+    pointer-events: none;
+    
+    /* A transição que cria o efeito gradual */
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Quando o overlay estiver ativo, ele fica visível */
+.spotlight-overlay.active {
+    opacity: 1;
+}
+
+/* O placar precisa de um z-index para ficar ACIMA do overlay */
+.score-block {
+    position: relative; /* Necessário para o z-index funcionar */
+    z-index: 1051; /* Mais alto que o overlay */
+    transition: all 0.5s ease-in-out; /* Transição suave para o destaque */
+}
+
+/* Estilo de destaque para a mensagem */
+.score-block.highlighted {
+    transform: scale(1.1); /* Aumenta um pouco de tamanho */
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.3); /* Adiciona um brilho */
+    background-color: var(--color-primary); /* Garante que o fundo não fique transparente */
+}
+
 /* responsive design */
 @media(orientation: portrait) {
     .game-display-on {
